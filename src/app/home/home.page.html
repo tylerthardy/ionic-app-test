@@ -29,18 +29,11 @@
         </ion-item>
       </ion-list>
 
-      <ion-list>
-        <ion-list-header>Inventory</ion-list-header>
-
-        <ion-item *ngIf="!loadout.inventory?.length">None</ion-item>
-        <ion-item *ngFor="let item of loadout.inventory">
-          <img [src]="item.icon_url">
-          <ion-label>
-            <h2>{{item.name}}</h2>
-            <p>Slot: {{item.slot}}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+      <div style="width:144px">
+        <div *ngFor="let inventorySlotId of inventorySlotIds" style="display:inline-block; vertical-align:top; width: 36px; height: 36px; background-color:darkgray;border:1px gray solid">
+            <img *ngIf="loadout.inventory[inventorySlotId]" [src]="loadout.inventory[inventorySlotId]?.icon_url">
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

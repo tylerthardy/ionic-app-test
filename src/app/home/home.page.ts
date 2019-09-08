@@ -12,6 +12,7 @@ export class HomePage implements OnInit {
   loadout: any;
   loading = true;
   error: any;
+  inventorySlotIds: Number[] = new Array(28).fill(0).map((x, i) => i);
 
   constructor(private apollo: Apollo) {}
 
@@ -23,13 +24,13 @@ export class HomePage implements OnInit {
           loadout(_id:"5d73f7a7ea861c2a68fc5c71"){
             name,
             inventory{
-              id,
+              itemid: id,
               name,
               slot,
               icon_url
             },
             equipment{
-              id,
+              itemid: id,
               name,
               slot,
               icon_url
@@ -40,6 +41,14 @@ export class HomePage implements OnInit {
       })
       .valueChanges.subscribe((result: ApolloQueryResult<any>) => {
         this.loadout = result.data && result.data.loadout;
+        if (this.loadout.inventory) {
+          let out = [];
+          for (let i in this.loadout.inventory) {
+            let item = this.loadout.inventory[i];
+            out[item.slot - 1] = item;
+          }
+          this.loadout.inventory = out;
+        }
         this.loading = result.loading;
         this.error = result.errors;
       });
