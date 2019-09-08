@@ -9,7 +9,7 @@ import { ApolloQueryResult } from 'apollo-client';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  author: any;
+  loadout: any;
   loading = true;
   error: any;
 
@@ -19,22 +19,27 @@ export class HomePage implements OnInit {
     this.apollo
       .watchQuery({
         query: gql`
-        query {
-          author(id: 21559){
+        query{
+          loadout(_id:"5d73f7a7ea861c2a68fc5c71"){
             name,
-            books {
-              title
-              isbn,
-              authors {
-                name
-              }
+            inventory{
+              id,
+              name,
+              slot,
+              icon_url
+            },
+            equipment{
+              id,
+              name,
+              slot,
+              icon_url
             }
           }
         }
         `,
       })
       .valueChanges.subscribe((result: ApolloQueryResult<any>) => {
-        this.author = result.data && result.data.author;
+        this.loadout = result.data && result.data.loadout;
         this.loading = result.loading;
         this.error = result.errors;
       });

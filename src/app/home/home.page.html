@@ -14,14 +14,33 @@
     <div *ngIf="error">
       Error :(
     </div>
-    <div *ngIf="author">
-      <h1>{{author.name}}</h1>
-      <ion-card *ngFor="let book of author.books">
-        <ion-card-header>
-          <ion-card-title>{{book.title}}</ion-card-title>
-          <ion-card-subtitle>{{book.isbn}}</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
+    <div *ngIf="loadout">
+      <h1>{{loadout.name}}</h1>
+      <ion-list>
+        <ion-list-header>Equipment</ion-list-header>
+
+        <ion-item *ngIf="!loadout.equipment?.length">None</ion-item>
+        <ion-item *ngFor="let item of loadout.equipment">
+          <img [src]="item.icon_url">
+          <ion-label>
+            <h2>{{item.name}}</h2>
+            <p>Slot: {{item.slot}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>Inventory</ion-list-header>
+
+        <ion-item *ngIf="!loadout.inventory?.length">None</ion-item>
+        <ion-item *ngFor="let item of loadout.inventory">
+          <img [src]="item.icon_url">
+          <ion-label>
+            <h2>{{item.name}}</h2>
+            <p>Slot: {{item.slot}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
     </div>
   </div>
 </ion-content>
