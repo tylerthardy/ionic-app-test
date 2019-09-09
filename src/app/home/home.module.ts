@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { ItemSelectComponent } from '../item-select/item-select.component';
+import { ItemDetailsComponent } from '../item-details/item-details.component';
+import { ItemDetailsService } from '../item-details/item-details.service';
 
 @NgModule({
   imports: [
@@ -21,7 +23,11 @@ import { ItemSelectComponent } from '../item-select/item-select.component';
   ],
   declarations: [
     HomePage,
-    ItemSelectComponent
+    ItemSelectComponent,
+    ItemDetailsComponent
+  ],
+  providers: [
+    ItemDetailsService
   ]
 })
 export class HomePageModule {}

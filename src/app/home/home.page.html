@@ -32,6 +32,9 @@
       <div style="width:152px">
         <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId]"></item-select>
       </div>
+      <div style="display: inline-block">
+        <item-details></item-details>
+      </div>
     </div>
   </div>
 </ion-content>

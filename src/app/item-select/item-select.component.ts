@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ItemDetailsService } from '../item-details/item-details.service';
 
 @Component({
   selector: 'item-select',
@@ -7,9 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemSelectComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private itemDetailsService: ItemDetailsService
+  ) { }
 
   @Input() item: any;
 
   ngOnInit() {}
+
+  onClick(item: any) {
+    this.itemDetailsService.populate(item ? item.name : "null");
+  }
 }
