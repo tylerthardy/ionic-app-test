@@ -29,10 +29,8 @@
         </ion-item>
       </ion-list>
 
-      <div style="width:144px">
-        <div *ngFor="let inventorySlotId of inventorySlotIds" style="display:inline-block; vertical-align:top; width: 36px; height: 36px; background-color:darkgray;border:1px gray solid">
-            <img *ngIf="loadout.inventory[inventorySlotId]" [src]="loadout.inventory[inventorySlotId]?.icon_url">
-        </div>
+      <div style="width:152px">
+        <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId]"></item-select>
       </div>
     </div>
   </div>
