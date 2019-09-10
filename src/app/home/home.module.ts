@@ -8,6 +8,7 @@ import { HomePage } from './home.page';
 import { ItemSelectComponent } from '../item-select/item-select.component';
 import { ItemDetailsComponent } from '../item-details/item-details.component';
 import { ItemDetailsService } from '../item-details/item-details.service';
+import { PaperDollComponent } from '../paper-doll/paper-doll.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ItemDetailsService } from '../item-details/item-details.service';
   declarations: [
     HomePage,
     ItemSelectComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    PaperDollComponent
   ],
   providers: [
     ItemDetailsService

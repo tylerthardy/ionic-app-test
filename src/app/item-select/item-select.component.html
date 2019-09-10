@@ -1,3 +1,5 @@
-<div style="display:inline-block; vertical-align:top; width: 38px; height: 38px; background-color:darkgray;border:1px gray solid" (click)="onClick(item)">
-    <img *ngIf="item" [src]="item?.icon_url">
+<div class="item-select"
+    (click)="onClick(item)"
+    (press)="onPress(item)">
+    <img *ngIf="item" [src]="item?.icon_url" style="pointer-events: none;">
 </div>

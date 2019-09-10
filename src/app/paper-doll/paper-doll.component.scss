@@ -1,0 +1,29 @@
+.doll {
+    width: 170px;
+}
+.row {
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+}
+.equipment-slot {
+    margin: 2px;
+}
+.row-3 {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 5%;
+    max-width: 308px;
+    margin: 0 auto;
+}
+.row-5 {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 2.5%;
+    max-width: 308px;
+    margin: 0 auto;
+}

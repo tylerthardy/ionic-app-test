@@ -19,4 +19,8 @@ export class ItemSelectComponent implements OnInit {
   onClick(item: any) {
     this.itemDetailsService.populate(item ? item.name : "null");
   }
+
+  onPress(item: any) {
+    console.log(item);
+  }
 }

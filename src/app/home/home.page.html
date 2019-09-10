@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      OSRS Mate
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,25 +16,21 @@
     </div>
     <div *ngIf="loadout">
       <h1>{{loadout.name}}</h1>
-      <ion-list>
-        <ion-list-header>Equipment</ion-list-header>
-
-        <ion-item *ngIf="!loadout.equipment?.length">None</ion-item>
-        <ion-item *ngFor="let item of loadout.equipment">
-          <img [src]="item.icon_url">
-          <ion-label>
-            <h2>{{item.name}}</h2>
-            <p>Slot: {{item.slot}}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-
-      <div style="width:152px">
-        <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId]"></item-select>
-      </div>
-      <div style="display: inline-block">
-        <item-details></item-details>
-      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <paper-doll [slots]="loadout.equipment"></paper-doll>
+          </ion-col>
+          <ion-col>
+            <div style="width:152px">
+              <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId-1]"></item-select>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <item-details></item-details>
+        </ion-row>
+      </ion-grid>
     </div>
   </div>
 </ion-content>

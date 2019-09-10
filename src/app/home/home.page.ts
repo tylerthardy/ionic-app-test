@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
       .watchQuery({
         query: gql`
         query{
-          loadout(_id:"5d73f7a7ea861c2a68fc5c71"){
+          loadout(_id:"5d7745763eb09a43c4659686"){
             name,
             inventory{
               itemid: id,
