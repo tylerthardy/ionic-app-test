@@ -10,11 +10,16 @@
 .item-select .quantity {
     font-family: osrs-small;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 1px;
+    right: 1px;
     color: yellow;
     text-shadow: -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+.item-select img {
+    top: 2px;
+    left: 1px;
+    position: relative;
 }
