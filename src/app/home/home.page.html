@@ -12,7 +12,8 @@
       Loading...
     </div>
     <div *ngIf="error">
-      Error :(
+      <h2>Error :(</h2>
+      <div>{{error}}</div>
     </div>
     <div *ngIf="loadout">
       <h1>{{loadout.name}}</h1>

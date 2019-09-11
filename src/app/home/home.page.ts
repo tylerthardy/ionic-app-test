@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
 import { ApolloQueryResult } from 'apollo-client';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,18 +11,25 @@ import { ApolloQueryResult } from 'apollo-client';
 })
 export class HomePage implements OnInit {
   loadout: any;
+  loadoutId: string;
   loading = true;
   error: any;
   inventorySlotIds: Number[] = new Array(28).fill(0).map((x, i) => i);
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.loadoutId = this.route.snapshot.paramMap.get("loadoutId");
+    if (!this.loadoutId) {
+      this.loading = false;
+      this.error = "No id given";
+      return;
+    }
     this.apollo
       .watchQuery({
         query: gql`
         query{
-          loadout(_id:"5d7745763eb09a43c4659686"){
+          loadout(_id:"${this.loadoutId}"){
             name,
             inventory{
               itemid: id,
