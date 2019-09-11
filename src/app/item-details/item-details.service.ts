@@ -12,7 +12,7 @@ export class ItemDetailsService {
   @Output() contentChange: EventEmitter<string> = new EventEmitter();
 
   populate(str: string) {
-    this.content = str;
+    this.content = (!str || str != "null") ? str : "";
     this.contentChange.emit(this.content);
   }
 }
