@@ -8,7 +8,7 @@ import { ItemDetailsService } from './item-details.service';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  content: string = "content"
+  content: string = "";
 
   constructor(
     private itemDetailsService: ItemDetailsService
