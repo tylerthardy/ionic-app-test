@@ -2,4 +2,5 @@
     (click)="onClick(item)"
     (press)="onPress(item)">
     <img *ngIf="item" [src]="item?.icon_url" style="pointer-events: none;">
+    <span *ngIf="item?.quantity && item?.quantity > 1" class="quantity">{{formatQuantity(item.quantity)}}</span>
 </div>

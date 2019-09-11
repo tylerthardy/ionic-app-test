@@ -23,4 +23,16 @@ export class ItemSelectComponent implements OnInit {
   onPress(item: any) {
     console.log(item);
   }
+
+  formatQuantity(quantity: number) {
+    if (quantity < 100000) {
+      return quantity.toLocaleString();
+    }
+    if (quantity >= 100000 && quantity < 10000000) {
+      return Math.floor(quantity / 1000).toLocaleString() + "K";
+    }
+    if (quantity >= 10000000) {
+      return Math.floor(quantity / 1000000).toLocaleString() + "M";
+    }
+  }
 }

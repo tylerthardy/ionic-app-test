@@ -35,13 +35,15 @@ export class HomePage implements OnInit {
               itemid: id,
               name,
               slot,
-              icon_url
+              icon_url,
+              quantity
             },
             equipment{
               itemid: id,
               name,
               slot,
-              icon_url
+              icon_url,
+              quantity
             }
           }
         }
