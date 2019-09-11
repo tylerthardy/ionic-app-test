@@ -11,7 +11,16 @@ export class PaperDollComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.slots) {
+      let out = [];
+      for (let i in this.slots) {
+        let item = this.slots[i];
+        out[item.slot] = item;
+      }
+      this.slots = out;
+    }
+  }
 
 }
 /*
