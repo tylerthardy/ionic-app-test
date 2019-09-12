@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title class="logo-title">
       OSRS Mate
     </ion-title>
@@ -7,33 +7,39 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <div *ngIf="loading">
-      Loading...
-    </div>
-    <div *ngIf="error">
-      <h2>Error :(</h2>
-      <div>{{error}}</div>
-    </div>
-    <div *ngIf="loadout">
-      <h1>{{loadout.name}}</h1>
-      <h3>{{loadout.activity?.name}}</h3>
-      <h4>{{loadout.activity?.type}}</h4>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <paper-doll [slots]="loadout.equipment"></paper-doll>
-          </ion-col>
-          <ion-col>
-            <div style="width:152px">
-              <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId-1]"></item-select>
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <item-details></item-details>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </div>
+  <ion-grid fixed>
+      <div *ngIf="loading">
+        Loading...
+      </div>
+      <div *ngIf="error">
+        <h2>Error :(</h2>
+        <div>{{error}}</div>
+      </div>
+      <div *ngIf="loadout">
+        <ion-grid>
+          <ion-row>
+            <h1>{{loadout.name}}</h1>
+          </ion-row>
+          <ion-row>
+            <h3>{{loadout.activity?.name}}</h3>
+          </ion-row>
+          <ion-row>
+            <h4>{{loadout.activity?.type}}</h4>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <paper-doll [slots]="loadout.equipment"></paper-doll>
+            </ion-col>
+            <ion-col>
+              <div style="width:152px; margin: 0 auto;">
+                <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId-1]"></item-select>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <item-details></item-details>
+          </ion-row>
+        </ion-grid>
+      </div>
+  </ion-grid>
 </ion-content>
