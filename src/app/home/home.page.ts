@@ -31,6 +31,10 @@ export class HomePage implements OnInit {
         query{
           loadout(_id:"${this.loadoutId}"){
             name,
+            activity{
+              name,
+              type
+            },
             inventory{
               itemid: id,
               name,

@@ -17,6 +17,8 @@
     </div>
     <div *ngIf="loadout">
       <h1>{{loadout.name}}</h1>
+      <h3>{{loadout.activity?.name}}</h3>
+      <h4>{{loadout.activity?.type}}</h4>
       <ion-grid>
         <ion-row>
           <ion-col>
