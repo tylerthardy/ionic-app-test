@@ -9,6 +9,7 @@ import { ItemSelectComponent } from '../item-select/item-select.component';
 import { ItemDetailsComponent } from '../item-details/item-details.component';
 import { ItemDetailsService } from '../item-details/item-details.service';
 import { PaperDollComponent } from '../paper-doll/paper-doll.component';
+import { InventoryComponent } from '../inventory/inventory.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PaperDollComponent } from '../paper-doll/paper-doll.component';
     HomePage,
     ItemSelectComponent,
     ItemDetailsComponent,
-    PaperDollComponent
+    PaperDollComponent,
+    InventoryComponent
   ],
   providers: [
     ItemDetailsService

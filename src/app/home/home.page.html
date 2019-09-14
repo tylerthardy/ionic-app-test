@@ -33,9 +33,7 @@
               <paper-doll [slots]="loadout.equipment"></paper-doll>
             </ion-col>
             <ion-col>
-              <div style="width:152px; margin: 0 auto;">
-                <item-select *ngFor="let inventorySlotId of inventorySlotIds" [item]="loadout.inventory[inventorySlotId-1]"></item-select>
-              </div>
+              <inventory [slots]="this.loadout?.inventory"></inventory>
             </ion-col>
           </ion-row>
           <ion-row>

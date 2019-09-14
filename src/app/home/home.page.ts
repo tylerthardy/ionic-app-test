@@ -14,7 +14,6 @@ export class HomePage implements OnInit {
   loadoutId: string;
   loading = true;
   error: any;
-  inventorySlotIds: Number[] = new Array(28).fill(0).map((x, i) => i);
 
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
@@ -55,14 +54,6 @@ export class HomePage implements OnInit {
       })
       .valueChanges.subscribe((result: ApolloQueryResult<any>) => {
         this.loadout = result.data && result.data.loadout;
-        if (this.loadout.inventory) {
-          let out = [];
-          for (let i in this.loadout.inventory) {
-            let item = this.loadout.inventory[i];
-            out[item.slot - 1] = item;
-          }
-          this.loadout.inventory = out;
-        }
         this.loading = result.loading;
         this.error = result.errors;
       });
