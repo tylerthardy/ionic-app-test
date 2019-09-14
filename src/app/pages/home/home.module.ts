@@ -5,11 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { ItemSelectComponent } from '../item-select/item-select.component';
-import { ItemDetailsComponent } from '../item-details/item-details.component';
-import { ItemDetailsService } from '../item-details/item-details.service';
-import { PaperDollComponent } from '../paper-doll/paper-doll.component';
-import { InventoryComponent } from '../inventory/inventory.component';
+import { ItemSelectComponent } from '../../shared/item-select/item-select.component';
+import { ItemDetailsComponent } from '../../shared/item-details/item-details.component';
+import { ItemDetailsService } from '../../shared/item-details/item-details.service';
+import { PaperDollComponent } from '../../shared/paper-doll/paper-doll.component';
+import { InventoryComponent } from '../../shared/inventory/inventory.component';
 
 @NgModule({
   imports: [
